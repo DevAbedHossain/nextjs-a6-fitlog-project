@@ -1,5 +1,4 @@
-import Link from "next/link";
-
+import TabItem from "@/components/myplanpage/TabItem";
 
 
 const MyPlanPage = () => {
@@ -24,38 +23,7 @@ const MyPlanPage = () => {
                     </div>
                 </div>
 
-                {/* name of each tab group should be unique */}
-                <div role="tablist" className="tabs tabs-box w-fit rounded-2xl bg-[#1a1d23] p-1">
-
-                    <input type="radio" name="my_tabs_1" className="tab rounded-xl px-4 text-sm text-gray-400 checked:bg-[#0d0f12] checked:text-[#b8ff00]" aria-label="Today's Plan" defaultChecked />
-                    <div className="tab-content hidden">Today's Plan</div>
-
-
-
-                    <input type="radio" name="my_tabs_1" className="tab rounded-xl px-4 text-sm text-gray-400 checked:bg-[#0d0f12] checked:text-[#b8ff00]" aria-label="Saved" />
-                    <div className="tab-content hidden">Saved</div>
-
-                </div>
-
-
-                <div>
-                    <div className="mt-8 flex min-h-64 flex-col items-center justify-center rounded-2xl border border-dashed border-gray-800 bg-[#191c22] text-center">
-                        <h2 className="text-lg font-bold uppercase">
-                            Nothing Here Yet
-                        </h2>
-
-                        <p className="mt-2 text-gray-400">
-                            Browse the library and add a lift to get today moving.
-                        </p>
-
-                        <Link
-                            href="/workouts"
-                            className="btn mt-6 rounded-xl border-none bg-[#b8ff00] text-black hover:bg-[#a9eb00]"
-                        >
-                            Go to workouts
-                        </Link>
-                    </div>
-                </div>
+                <TabItem />
 
             </div>
         </section>
