@@ -1,9 +1,10 @@
-import React from 'react';
+
+
 
 const AboutPage = () => {
     return (
-        <div>
-            <h2>About Page</h2>
+        <div className="bg-black">
+            <h2>about</h2>
         </div>
     );
 };

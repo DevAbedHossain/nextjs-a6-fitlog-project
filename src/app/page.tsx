@@ -1,11 +1,14 @@
-import Navbar from '@/components/shared/Navbar';
+import Banner from '@/components/homepage/Banner';
+
 
 
 
 const HomePage = async () => {
 
   return (
-    <h2>Home page</h2>
+    <div className="bg-black">
+      <Banner />
+    </div>
   );
 };
 
