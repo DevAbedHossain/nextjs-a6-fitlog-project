@@ -13,7 +13,7 @@ const Library = async () => {
                 <h2 className="text-3xl font-bold mb-2">THE LIBRARY</h2>
                 <p className="text-[16px] text-[#9CA3AF]">Twelve lifts covering every major muscle group.</p>
 
-                <div className="grid grid-cols-3 gap-5">
+                <div className="grid grid-cols-3 gap-5 pt-10">
                     {
                         fitlogs.map((fitlog: IFitLog) => <FitLogCard key={fitlog.id} fitlog={fitlog} />)
                     }
