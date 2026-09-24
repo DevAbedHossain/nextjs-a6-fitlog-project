@@ -1,5 +1,8 @@
 export const getFitLogs = async () => {
     const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
+    if (!res.ok) {
+        throw new Error("faild data fetch fitlog");
+    }
     const data = await res.json();
     return data;
 }

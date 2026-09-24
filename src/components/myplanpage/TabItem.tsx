@@ -4,6 +4,7 @@ import { IFitLog } from '@/types/FitType';
 import Link from 'next/link';
 import { useContext, useState } from 'react';
 import TodayPlanCard from './TodayPlanCard';
+import SaveLaterCard from './SaveLaterCard';
 
 
 const TabItem = () => {
@@ -58,12 +59,18 @@ const TabItem = () => {
             }
 
 
-            {/* Saved */}
-            <div className={`${activeTab === "saved" ? "block" : "hidden"} mt-8 flex min-h-64 flex-col items-center justify-center rounded-2xl border border-dashed border-gray-800 bg-[#191c22] px-5 text-center`}>
-                <h2 className="text-lg font-bold uppercase tracking-wide text-white">Nothing Saved Here Yet</h2>
-                <p className="mt-2 text-sm text-gray-400 sm:text-base"> Browse the library and add a lift to get today moving.</p>
-                <Link href="/" className="btn mt-6 rounded-xl border-none bg-[#b8ff00] px-6 text-black hover:bg-[#a9eb00]">Go to workouts</Link>
-            </div>
+            {
+                saveLater.length > 0 ? <div className={`space-y-4 mt-8 ${activeTab === "saved" ? "block" : "hidden"}`}>
+                    {
+                        saveLater.map((saveItem: IFitLog, ind: number) => <SaveLaterCard key={ind} saveItem={saveItem} />)
+                    }
+                </div> :
+                    <div className={`${activeTab === "saved" ? "block" : "hidden"} mt-8 flex min-h-64 flex-col items-center justify-center rounded-2xl border border-dashed border-gray-800 bg-[#191c22] px-5 text-center`}>
+                        <h2 className="text-lg font-bold uppercase tracking-wide text-white">Nothing Saved Here Yet</h2>
+                        <p className="mt-2 text-sm text-gray-400 sm:text-base"> Browse the library and add a lift to get today moving.</p>
+                        <Link href="/" className="btn mt-6 rounded-xl border-none bg-[#b8ff00] px-6 text-black hover:bg-[#a9eb00]">Go to workouts</Link>
+                    </div>
+            }
 
         </section>
     );

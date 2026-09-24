@@ -3,15 +3,22 @@ import { WorkOutContext } from '@/context/WorkOutProvider';
 import { IFitLog } from '@/types/FitType';
 import { useContext } from 'react';
 import { CiBookmark } from 'react-icons/ci';
+import { toast } from 'react-toastify';
 
 const SaveLaterButton = ({ fitlog }: { fitlog: IFitLog }) => {
 
     const { saveLater, setSaveLater } = useContext(WorkOutContext);
 
     const handleSaveLater = () => {
-        console.log("save later button trigger");
 
+        const IsAdded = saveLater.find(saveId => saveId.id === fitlog.id)
+
+        if (IsAdded) {
+            toast.error(`${fitlog.name} is already added in save later`)
+            return;
+        }
         setSaveLater([...saveLater, fitlog])
+        toast.success(`${fitlog.name} save for later`)
     }
 
     return (

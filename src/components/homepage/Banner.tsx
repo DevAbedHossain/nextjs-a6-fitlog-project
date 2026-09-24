@@ -16,7 +16,7 @@ const Banner = () => {
                         <Link href="/#library" className="btn bg-[#C2F800] text-black text-16 font-bold py-7 px-10">BROWSE WORKOUTS <IoChevronDownOutline /></Link>
                     </div>
 
-                    <Image src={Fitness} alt="fitness" width={400} height={400}></Image>
+                    <Image src={Fitness} alt="fitness" width={400} height={400} className="w-100 h-100 object-contain "></Image>
                 </div>
             </div>
         </section>

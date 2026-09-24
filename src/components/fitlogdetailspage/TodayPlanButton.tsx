@@ -3,6 +3,7 @@ import { WorkOutContext } from "@/context/WorkOutProvider";
 import { IFitLog } from "@/types/FitType";
 import { useContext } from "react";
 import { IoTodayOutline } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 
 const TodayPlanButton = ({ fitlog }: { fitlog: IFitLog }) => {
@@ -10,10 +11,17 @@ const TodayPlanButton = ({ fitlog }: { fitlog: IFitLog }) => {
     const { todayPlan, setTodayPlan } = useContext(WorkOutContext)
 
     const handleTodayPlan = () => {
-        console.log("Handle Today Plan Click event trigger")
+
+        const isAdded = todayPlan.find(planId => planId.id === fitlog.id);
+
+        if (isAdded) {
+            toast.error(`${fitlog.name} already added in today's plan`);
+            return;
+        }
 
         setTodayPlan([...todayPlan, fitlog]);
-        console.log(todayPlan)
+        toast.success(`${fitlog.name} added to today's plan`)
+
     }
 
     return (

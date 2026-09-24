@@ -1,11 +1,32 @@
+import { WorkOutContext } from '@/context/WorkOutProvider';
 import { IFitLog } from '@/types/FitType';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useContext } from 'react';
 import { FaCheck, FaFire, FaRegStar, FaTimes } from 'react-icons/fa';
 import { GoClock } from 'react-icons/go';
+import { toast } from 'react-toastify';
 
 
 const TodayPlanCard = ({ plan }: { plan: IFitLog }) => {
+
+    const { todayPlan, setTodayPlan } = useContext(WorkOutContext);
+
+    const handleMarkAsDone = () => {
+
+        const updateTodayPlan = todayPlan.filter(tPlan => tPlan.id !== plan.id);
+
+        setTodayPlan(updateTodayPlan);
+        toast.success(`${plan.name} workout logged -- thank you`)
+    }
+
+    const handleRemoveItem = () => {
+        const updateTodayPlan = todayPlan.filter(tPlan => tPlan.id !== plan.id);
+
+        setTodayPlan(updateTodayPlan);
+        toast.success(`${plan.name} removed from today's plan`)
+    }
+
     return (
         <div className="bg-[#14171e] rounded-2xl p-5 border border-[#232732] grid grid-cols-2 gap-5 justify-between">
             <div className="flex gap-5 items-center">
@@ -23,8 +44,8 @@ const TodayPlanCard = ({ plan }: { plan: IFitLog }) => {
 
             <div className="flex gap-4 items-center justify-end">
                 <Link href={`/exercise/${plan.id}`} className="btn rounded-full border border-[#374151]">View Details</Link>
-                <button className="btn flex justify-center items-center rounded-full bg-[#ccff00] text-black"><FaCheck />Mark as Done</button>
-                <span className="text-[#6B7280] text-lg cursor-pointer"><FaTimes /></span>
+                <button onClick={() => handleMarkAsDone()} className="btn flex justify-center items-center rounded-full bg-[#ccff00] text-black"><FaCheck />Mark as Done</button>
+                <span onClick={() => handleRemoveItem()} className="text-[#6B7280] text-lg cursor-pointer"><FaTimes /></span>
             </div>
         </div>
     );
