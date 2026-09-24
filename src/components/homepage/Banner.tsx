@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Fitness from "@/assets/banner.png"
 import Link from 'next/link';
+import { IoChevronDownOutline } from 'react-icons/io5';
 
 const Banner = () => {
     return (
@@ -12,7 +13,7 @@ const Banner = () => {
                         <h1 className="text-6xl text-white font-bold ">TRAIN WITH INTENT. LOG EVERY SET.</h1>
                         <p className="text-[16px] font-normal text-[#9CA3AF] w-9/12">FitLog is a dark, no-nonsense gym companion: pick a lift, lock itinto today's plan, and watch the week's work add up.</p>
 
-                        <Link href="/#library" className="btn bg-[#C2F800] text-black text-14 font-bold py-7 px-12">BROWSE WORKOUTS</Link>
+                        <Link href="/#library" className="btn bg-[#C2F800] text-black text-16 font-bold py-7 px-10">BROWSE WORKOUTS <IoChevronDownOutline /></Link>
                     </div>
 
                     <Image src={Fitness} alt="fitness" width={400} height={400}></Image>

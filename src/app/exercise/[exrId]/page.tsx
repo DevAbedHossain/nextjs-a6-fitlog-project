@@ -1,9 +1,10 @@
-import { singleFitLog } from "@/lib/singleFitLog";
+import SaveLaterButton from "@/components/fitlogdetailspage/SaveLaterButton";
+import TodayPlanButton from "@/components/fitlogdetailspage/TodayPlanButton";
+import { singleFitLog } from "@/lib/fitlogs";
 import { IFitLog } from "@/types/FitType";
 import Image from "next/image";
 import Link from "next/link";
 import { CiBookmark } from "react-icons/ci";
-import { IoTodayOutline } from "react-icons/io5";
 
 interface IExrDetailsPhroms {
     params: {
@@ -22,7 +23,7 @@ const ExrDetailsPage = async ({ params }: IExrDetailsPhroms) => {
         <section className="bg-black">
             <div className="container mx-auto py-10 grid grid-cols-2 gap-15">
 
-                <Image src={fitlog.image} alt={fitlog.name} width={700} height={1500} className="w-full h-210 object-fill rounded-3xl"></Image>
+                <Image src={fitlog.image} alt={fitlog.name} width={700} height={700} className="w-full h-210 object-fill rounded-3xl"></Image>
 
                 <div className="space-y-4">
                     <h2 className="text-4xl font-bold">{fitlog.name}</h2>
@@ -73,8 +74,8 @@ const ExrDetailsPage = async ({ params }: IExrDetailsPhroms) => {
                     </div>
 
                     <div className="flex gap-5 items-center py-5">
-                        <Link href="" className="btn bg-[#CCFF00] text-[#0F1115] text-[16px] font-semibold rounded border border-[#CCFF00]"><IoTodayOutline /> Add to today's plan</Link>
-                        <Link href="" className="btn bg-black text-[#E5E7EB] text-[16px] font-semibold rounded border border-[#374151]"><CiBookmark /> Save for later</Link>
+                        <TodayPlanButton fitlog={fitlog} />
+                        <SaveLaterButton fitlog={fitlog} />
                     </div>
                 </div>
             </div>
