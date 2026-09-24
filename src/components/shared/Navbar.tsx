@@ -16,7 +16,7 @@ const Navbar = () => {
     </>
 
     return (
-        <section className="bg-[#0c0d10]">
+        <section className="bg-[#0c0d10] border-b border-[#1C1F26] sticky top-0 z-50">
             <div className="container mx-auto">
                 <div className="navbar shadow-sm">
                     <div className="navbar-start">

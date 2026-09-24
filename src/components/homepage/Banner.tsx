@@ -13,7 +13,7 @@ const Banner = () => {
                         <button className="btn bg-[#C2F800] text-black text-14 font-bold">BROWSE WORKOUTS</button>
                     </div>
 
-                    <Image src={Fitness} alt="fitness" width={500} height={500}></Image>
+                    <Image src={Fitness} alt="fitness" width={400} height={400}></Image>
                 </div>
             </div>
         </section>
