@@ -8,7 +8,7 @@ const Library = async () => {
     const fitlogs = await getFitLogs();
 
     return (
-        <section className="bg-black">
+        <section className="bg-black" id="library">
             <div className="container mx-auto py-15">
                 <h2 className="text-3xl font-bold mb-2">THE LIBRARY</h2>
                 <p className="text-[16px] text-[#9CA3AF]">Twelve lifts covering every major muscle group.</p>

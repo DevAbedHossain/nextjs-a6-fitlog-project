@@ -8,11 +8,10 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
 
     const pathName = usePathname()
-    console.log(pathName)
 
     const links = <>
         <li><Link href="/" className={pathName === "/" ? "bg-[#1A2312] text-[#C2F800] text-[16px] font-semibold rounded-full" : "text-[#9CA3AF] font-medium rounded-full text-[16px]"} >Workouts</Link></li>
-        <li><Link href="/about" className={pathName === "/about" ? "bg-[#1A2312] text-[#C2F800] text-[16px] font-semibold rounded-full" : "text-[#9CA3AF] font-medium rounded-full text-[16px]"} >About</Link></li>
+        <li><Link href="/my-plan" className={pathName === "/my-plan" ? "bg-[#1A2312] text-[#C2F800] text-[16px] font-semibold rounded-full" : "text-[#9CA3AF] font-medium rounded-full text-[16px]"} >My Plan</Link></li>
     </>
 
     return (
