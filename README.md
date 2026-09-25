@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏋️ FitLog — Workout Library
 
-## Getting Started
+FitLog is a modern workout library and fitness planning web application designed to help users discover exercises, build their daily workout plan, and keep track of their fitness activities.
 
-First, run the development server:
+The application provides a clean and focused gym experience where users can browse workouts, view exercise details, add exercises to their plan, and manage their saved workouts.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Live Website
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<!-- https://workout-library-nine.vercel.app/ -->
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📖 About The Project
 
-## Learn More
+FitLog is a dark-themed workout companion built for people who want a simple way to organize their workouts.
 
-To learn more about Next.js, take a look at the following resources:
+Users can browse a collection of exercises categorized by muscle groups, check workout details such as duration, calories, equipment, and rating, and add exercises to their personal workout plan.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The goal of the project is to provide a simple and user-friendly workout planning experience without unnecessary complexity.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- DaisyUI
+- React Icons
+- REST API
+- Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## ✨ Key Features
+
+### 1. 🏋️ Workout Library
+
+Browse a collection of workouts covering different muscle groups such as:
+
+- Chest
+- Back
+- Legs
+- Arms
+- Core
+- Shoulders
+- Full Body
+
+The library provides workout information including duration, calories, equipment, and rating. :contentReference[oaicite:1]{index=1}
+
+### 2. 📋 My Plan
+
+Users can create and manage their daily workout plan by adding exercises from the workout library.
+
+The My Plan page allows users to see the exercises selected for today's workout and manage their planned activities.
+
+### 3. 🔎 Workout Details
+
+Each workout has a dedicated details page where users can view more information about the selected exercise before adding it to their plan.
+
+### 4. 💾 Saved Workouts
+
+Users can save workouts they are interested in and access them later from the Saved section.
+
+### 5. 📊 Workout Tracking
+
+FitLog provides useful workout information such as:
+
+- Workout duration
+- Estimated calories
+- Exercise rating
+- Equipment
+- Muscle group
+
+This helps users understand and organize their workout sessions.
+
+---
+
+## 🎯 Project Goals
+
+The main goals of FitLog are to:
+
+- Make workout discovery simple
+- Help users organize their daily workouts
+- Provide useful information about each exercise
+- Create a clean and modern fitness-focused interface
+- Practice modern Next.js development
+
+---
+
+## 📱 Responsive Design
+
+FitLog is designed to work across different screen sizes, including:
+
+- Desktop
+- Tablet
+- Mobile
+
+---
+
+## 🌐 Deployment
+
+The project is deployed using Vercel.
+
+### Live Demo
+
+<!-- https://workout-library-nine.vercel.app/ -->
+
+---

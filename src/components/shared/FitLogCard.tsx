@@ -10,13 +10,13 @@ const FitLogCard = ({ fitlog }: { fitlog: IFitLog }) => {
         <Link href={`/exercise/${fitlog.id}`} >
             <div className="card bg-[#15171d] shadow-sm border border-[#15171d] rounded-2xl hover:border-[#C2F800]">
                 <figure>
-                    <Image className="w-full h-70 object-cover overflow-hidden rounded-t-2xl" src={fitlog.image} alt={fitlog.name} width={500} height={500}></Image>
+                    <Image className="w-full h-50 lg:h-70 object-cover overflow-hidden rounded-t-2xl" src={fitlog.image} alt={fitlog.name} width={500} height={500}></Image>
                 </figure>
 
                 <div className="card-body">
 
                     <div className="flex gap-2">
-                        {fitlog.muscleGroups.map((muscle: string, ind: number) => <span key={ind} className="text-[12px] font-bold bg-[#C2F800] rounded-full text-black px-3 py-1 uppercase">{muscle}</span>)}
+                        {fitlog.muscleGroups.map((muscle: string, ind: number) => <span key={ind} className="text-[10px] lg:text-[12px] font-bold bg-[#C2F800] rounded-full text-black px-3 py-1 uppercase">{muscle}</span>)}
                     </div>
 
                     <h2 className="card-title text-lg font-bold">{fitlog.name}</h2>

@@ -33,7 +33,7 @@ const TabItem = () => {
 
 
     return (
-        <section>
+        <section className="px-5 sm:px-0">
 
             <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 

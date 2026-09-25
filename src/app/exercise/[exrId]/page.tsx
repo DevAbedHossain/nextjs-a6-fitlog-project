@@ -20,13 +20,13 @@ const ExrDetailsPage = async ({ params }: IExrDetailsPhroms) => {
     const fitlog: IFitLog = await singleFitLog(exrId);
 
     return (
-        <section className="bg-black">
-            <div className="container mx-auto py-10 grid grid-cols-2 gap-15">
+        <section className="bg-black px-5 sm:px-0">
+            <div className="container mx-auto py-10 grid grid-cols-1 md:grid-cols-2 gap-15">
 
-                <Image src={fitlog.image} alt={fitlog.name} width={700} height={700} className="w-full h-210 object-fill rounded-3xl"></Image>
+                <Image src={fitlog.image} alt={fitlog.name} width={700} height={700} className="w-full h-100 md:h-150 lg:h-210 object-cover rounded-3xl"></Image>
 
                 <div className="space-y-4">
-                    <h2 className="text-4xl font-bold">{fitlog.name}</h2>
+                    <h2 className="text-2xl md:text-4xl font-bold">{fitlog.name}</h2>
                     <p className="text-[16px] text-[#9CA3AF]">{fitlog.description}</p>
 
                     <div className="flex items-center gap-3">

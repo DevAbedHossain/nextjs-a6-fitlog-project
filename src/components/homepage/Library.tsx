@@ -8,12 +8,12 @@ const Library = async () => {
     const fitlogs = await getFitLogs();
 
     return (
-        <section className="bg-black" id="library">
+        <section className="bg-black px-5 sm:px-0" id="library">
             <div className="container mx-auto py-15">
                 <h2 className="text-3xl font-bold mb-2">THE LIBRARY</h2>
                 <p className="text-[16px] text-[#9CA3AF]">Twelve lifts covering every major muscle group.</p>
 
-                <div className="grid grid-cols-3 gap-5 pt-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 pt-10">
                     {
                         fitlogs.map((fitlog: IFitLog) => <FitLogCard key={fitlog.id} fitlog={fitlog} />)
                     }
