@@ -12,19 +12,12 @@ const TodayPlanCard = ({ plan }: { plan: IFitLog }) => {
 
     const { todayPlan, setTodayPlan } = useContext(WorkOutContext);
 
-    const handleMarkAsDone = () => {
+    const handleMarkAsDone = (msg: string) => {
 
         const updateTodayPlan = todayPlan.filter(tPlan => tPlan.id !== plan.id);
 
         setTodayPlan(updateTodayPlan);
-        toast.success(`${plan.name} workout logged -- thank you`)
-    }
-
-    const handleRemoveItem = () => {
-        const updateTodayPlan = todayPlan.filter(tPlan => tPlan.id !== plan.id);
-
-        setTodayPlan(updateTodayPlan);
-        toast.success(`${plan.name} removed from today's plan`)
+        toast.success(`${plan.name} ${msg}`)
     }
 
     return (
@@ -44,8 +37,8 @@ const TodayPlanCard = ({ plan }: { plan: IFitLog }) => {
 
             <div className="flex gap-4 items-center justify-end">
                 <Link href={`/exercise/${plan.id}`} className="btn rounded-full border border-[#374151]">View Details</Link>
-                <button onClick={() => handleMarkAsDone()} className="btn flex justify-center items-center rounded-full bg-[#ccff00] text-black"><FaCheck />Mark as Done</button>
-                <span onClick={() => handleRemoveItem()} className="text-[#6B7280] text-lg cursor-pointer"><FaTimes /></span>
+                <button onClick={() => handleMarkAsDone("workout logged -- thank you")} className="btn flex justify-center items-center rounded-full bg-[#ccff00] text-black"><FaCheck />Mark as Done</button>
+                <span onClick={() => handleMarkAsDone("removed from today's plan")} className="text-[#6B7280] text-lg cursor-pointer"><FaTimes /></span>
             </div>
         </div>
     );

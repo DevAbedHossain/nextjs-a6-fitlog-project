@@ -7,6 +7,8 @@ interface IWorkOutPhroms {
     setTodayPlan: Dispatch<SetStateAction<IFitLog[]>>
     saveLater: IFitLog[]
     setSaveLater: Dispatch<SetStateAction<IFitLog[]>>
+    activeTab: "today" | "saved"
+    setActiveTab: Dispatch<SetStateAction<"today" | "saved">>
 }
 
 export const WorkOutContext = createContext<IWorkOutPhroms>({
@@ -14,15 +16,18 @@ export const WorkOutContext = createContext<IWorkOutPhroms>({
     setTodayPlan: () => { },
     saveLater: [],
     setSaveLater: () => { },
+    activeTab: "today",
+    setActiveTab: () => { },
 })
 
 const WorkOutProvider = ({ children }: { children: ReactNode }) => {
 
     const [todayPlan, setTodayPlan] = useState<IFitLog[]>([]);
     const [saveLater, setSaveLater] = useState<IFitLog[]>([]);
+    const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
 
     const sharedData: IWorkOutPhroms = {
-        todayPlan, setTodayPlan, saveLater, setSaveLater
+        todayPlan, setTodayPlan, saveLater, setSaveLater, activeTab, setActiveTab
     }
 
     return (
