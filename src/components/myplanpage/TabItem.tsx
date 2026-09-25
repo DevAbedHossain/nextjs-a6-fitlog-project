@@ -12,21 +12,29 @@ const TabItem = () => {
 
     const { todayPlan, saveLater, activeTab, setActiveTab } = useContext(WorkOutContext);
     const [sortValue, setSortValue] = useState<"duration" | "calories" | "rating">("duration")
+    const [searchByName, setSearchByName] = useState<string>("")
 
     const getFinalSortData = (exerPlan: IFitLog[]) => {
 
         const updateData = [...exerPlan]
 
+        const searchData = updateData.filter((itemName: IFitLog) => itemName.name.toLowerCase().includes(searchByName.toLowerCase()));
+
         if (sortValue === "duration") {
-            updateData.sort((a, b) => b.duration - a.duration);
+            searchData.sort((a, b) => b.duration - a.duration);
         } else if (sortValue === "calories") {
-            updateData.sort((a, b) => b.caloriesBurned - a.caloriesBurned)
+            searchData.sort((a, b) => b.caloriesBurned - a.caloriesBurned)
         } else if (sortValue === "rating") {
-            updateData.sort((a, b) => b.rating - a.rating)
+            searchData.sort((a, b) => b.rating - a.rating)
         }
 
-        return updateData;
+        return searchData;
     }
+
+    // const handleSearchByName = (value: string) => {
+    //     console.log(value)
+    //     return value;
+    // }
 
     const updateTodayPlan = getFinalSortData(todayPlan);
     const updateSaveLater = getFinalSortData(saveLater);
@@ -35,7 +43,7 @@ const TabItem = () => {
     return (
         <section className="px-5 sm:px-0">
 
-            <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div className="flex flex-col gap-5 lg:flex-row items-start sm:justify-between">
 
                 <div className="inline-flex w-fit rounded-2xl bg-[#1a1d23] p-1">
                     <button onClick={() => setActiveTab("today")} className={`rounded-xl px-4 py-2 text-sm font-medium transition ${activeTab === "today" ? "bg-[#0d0f12] text-[#b8ff00]" : "text-gray-400 hover:text-white"}`}>Today's Plan</button>
@@ -43,19 +51,26 @@ const TabItem = () => {
                     <button onClick={() => setActiveTab("saved")} className={`rounded-xl px-4 py-2 text-sm font-medium transition ${activeTab === "saved" ? "bg-[#0d0f12] text-[#b8ff00]" : "text-gray-400 hover:text-white"}`}>Saved</button>
                 </div>
 
-                <div className="w-full sm:w-80">
-                    <label className="mb-1 block text-sm font-medium text-white">Sort By</label>
+                <div className="flex justify-end gap-5">
+                    <div className="w-full sm:w-80">
+                        <label className="mb-1 block text-sm font-medium text-white">Search with name</label>
+                        <input onChange={(e) => setSearchByName(e.target.value)} type="text" placeholder="Workout Name" className="input bg-transparent outline-0 focus:border-0" />
+                    </div>
 
-                    <select onChange={(e) => setSortValue(e.target.value as "duration" | "calories" | "rating")} className="select w-full rounded-2xl border border-gray-700 bg-transparent text-white outline-none focus:border-[#b8ff00]">
-                        <option value={"duration"} className="bg-[#1a1d23]">Duration</option>
-                        <option value={"calories"} className="bg-[#1a1d23]">Calories</option>
-                        <option value={"rating"} className="bg-[#1a1d23]">Rating</option>
-                    </select>
+                    <div className="w-full sm:w-80">
+                        <label className="mb-1 block text-sm font-medium text-white">Sort By</label>
+
+                        <select onChange={(e) => setSortValue(e.target.value as "duration" | "calories" | "rating")} className="select w-full rounded-2xl border border-gray-700 bg-transparent text-white outline-none focus:border-[#b8ff00]">
+                            <option value={"duration"} className="bg-[#1a1d23]">Duration</option>
+                            <option value={"calories"} className="bg-[#1a1d23]">Calories</option>
+                            <option value={"rating"} className="bg-[#1a1d23]">Rating</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
             {
-                todayPlan.length > 0 ? <div className={`space-y-4 mt-8 ${activeTab === "today" ? "block" : "hidden"}`}>
+                updateTodayPlan.length > 0 ? <div className={`space-y-4 mt-8 ${activeTab === "today" ? "block" : "hidden"}`}>
                     {
                         updateTodayPlan.map((plan: IFitLog, ind: number) => <TodayPlanCard key={ind} plan={plan} />)
                     }
@@ -68,7 +83,7 @@ const TabItem = () => {
 
 
             {
-                saveLater.length > 0 ? <div className={`space-y-4 mt-8 ${activeTab === "saved" ? "block" : "hidden"}`}>
+                updateSaveLater.length > 0 ? <div className={`space-y-4 mt-8 ${activeTab === "saved" ? "block" : "hidden"}`}>
                     {
                         updateSaveLater.map((saveItem: IFitLog, ind: number) => <SaveLaterCard key={ind} saveItem={saveItem} />)
                     }
