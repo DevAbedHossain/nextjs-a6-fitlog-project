@@ -46,9 +46,9 @@ const TabItem = () => {
             <div className="flex flex-col gap-5 lg:flex-row items-start sm:justify-between">
 
                 <div className="inline-flex w-fit rounded-2xl bg-[#1a1d23] p-1">
-                    <button onClick={() => setActiveTab("today")} className={`rounded-xl px-4 py-2 text-sm font-medium transition ${activeTab === "today" ? "bg-[#0d0f12] text-[#b8ff00]" : "text-gray-400 hover:text-white"}`}>Today's Plan</button>
+                    <button onClick={() => setActiveTab("today")} className={`rounded-xl px-4 py-2 text-sm font-medium transition cursor-pointer ${activeTab === "today" ? "bg-[#0d0f12] text-[#b8ff00]" : "text-gray-400 hover:text-white"}`}>Today's Plan</button>
 
-                    <button onClick={() => setActiveTab("saved")} className={`rounded-xl px-4 py-2 text-sm font-medium transition ${activeTab === "saved" ? "bg-[#0d0f12] text-[#b8ff00]" : "text-gray-400 hover:text-white"}`}>Saved</button>
+                    <button onClick={() => setActiveTab("saved")} className={`rounded-xl px-4 py-2 text-sm font-medium transition cursor-pointer ${activeTab === "saved" ? "bg-[#0d0f12] text-[#b8ff00]" : "text-gray-400 hover:text-white"}`}>Saved</button>
                 </div>
 
                 <div className="flex justify-end gap-5">
@@ -60,7 +60,7 @@ const TabItem = () => {
                     <div className="w-full sm:w-80">
                         <label className="mb-1 block text-sm font-medium text-white">Sort By</label>
 
-                        <select onChange={(e) => setSortValue(e.target.value as "duration" | "calories" | "rating")} className="select w-full rounded-2xl border border-gray-700 bg-transparent text-white outline-none focus:border-[#b8ff00]">
+                        <select onChange={(e) => setSortValue(e.target.value as "duration" | "calories" | "rating")} className="select w-full rounded-2xl border border-gray-700 bg-transparent text-white outline-none focus:border-[#b8ff00] cursor-pointer">
                             <option value={"duration"} className="bg-[#1a1d23]">Duration</option>
                             <option value={"calories"} className="bg-[#1a1d23]">Calories</option>
                             <option value={"rating"} className="bg-[#1a1d23]">Rating</option>

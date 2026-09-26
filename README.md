@@ -6,7 +6,7 @@ The application provides a clean and focused gym experience where users can brow
 
 ## 🚀 Live Website
 
-<!-- https://workout-library-nine.vercel.app/ -->
+https://nextjs-a6-fitlog-project.vercel.app/
 
 ---
 
@@ -105,6 +105,6 @@ The project is deployed using Vercel.
 
 ### Live Demo
 
-<!-- https://workout-library-nine.vercel.app/ -->
+https://nextjs-a6-fitlog-project.vercel.app/
 
 ---
